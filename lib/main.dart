@@ -1,21 +1,27 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Welcome to Flutter', home: RandomWords());
+    return MaterialApp(
+        title: 'Startup Name Generator',
+        theme: ThemeData(primaryColor: Colors.white
+            // Flutter2.5以上だとappBarThemeを使わないとダメそう
+            // https://github.com/flutter/codelabs/commit/9ed03efa1d81b3e08bb18fc09da4200fb2fa6bf2#diff-9a26012cc11c6faf9b4d6afaf9881feeeae029a8b53784b268a33fcf1d896ec8
+            // appBarTheme: const AppBarTheme(
+            //   backgroundColor: Colors.white,
+            //   foregroundColor: Colors.black,
+            // ),
+            ),
+        home: RandomWords());
   }
 }
 
 class RandomWords extends StatefulWidget {
-  const RandomWords({Key? key}) : super(key: key);
-
   @override
   _RandomWordsState createState() => _RandomWordsState();
 }
